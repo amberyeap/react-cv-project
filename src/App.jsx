@@ -42,6 +42,11 @@ export default function App() {
 					setData={setWorkData}
 				/>
 			</form>
+			<LivePreview
+				general={generalData}
+				education={educationData}
+				work={workData}
+			/>
 		</div>
 	);
 }
@@ -128,7 +133,7 @@ function EducationExp({data, setData}) {
 				<input
 					name="studyDate"
 					placeholder="DD/MM/YYYY"
-					value={formData.studyDate}
+					value={data.studyDate}
 					onChange={handleChange}
 				/>
 			</label>
@@ -173,7 +178,7 @@ function WorkExp({data, setData}) {
 				<input
 					name="responsibilities"
 					placeholder="Reciting the alphabet"
-					value={data.repsonsibilities}
+					value={data.responsibilities}
 					onChange={handleChange}
 				/>
 			</label>
@@ -199,4 +204,26 @@ function WorkExp({data, setData}) {
 			</label>
 		</div>
 	)
+}
+
+function LivePreview({general, education, work}) {
+	return (
+		<div>
+			<h1>{general.name || "Bob the Builder"}</h1>
+			<p>{general.email || "bob_builder@gmail.com"}</p>
+			<p>{general.phone || "123456789"}</p>
+
+			<h2>Education</h2>
+			<h3>{education.schoolName || "Mickey Mouse Clubhouse"}</h3>
+			<p>{education.studyTitle || "The Mickey Dance"}</p>
+			<p>{education.studyDate}</p>
+
+			<h2>Work Experience</h2>
+			<h3>{work.company || "ABC Company"}</h3>
+			<p>{work.position || "Alphabet Reciter"}</p>
+			<p>{work.repsonsibilities || "Reciting the alphabet"}</p>
+			<p>{work.startDate}</p>
+			<p>{work.endDate}</p>
+		</div>
+	);
 }
