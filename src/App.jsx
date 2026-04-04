@@ -5,29 +5,53 @@ import { useState } from 'react'
 import './App.css'
 
 export default function App() {
+	const [generalData, setGenData] = useState({
+		name: "",
+		email: "",
+		phone: ""
+	});
+
+	const [educationData, setEduData] = useState({
+		schoolName:"",
+		studyTitle:"",
+		studyDate:""
+	});
+
+	const [workData, setWorkData] = useState({
+		company:"",
+		position:"",
+		repsonsibilities:"",
+		startDate:"",
+		endDate:""
+	});
+
 	return (
 		<div>
 			<form>
-				<h1>CV Builder!</h1>
-				<GeneralInfo />
-				<EducationExp />
-				<WorkExp />
+				<h1>CV Builder</h1>
+				<GeneralInfo 
+					data={generalData}
+					setData={setGenData}
+				/>
+				<EducationExp 
+					data={educationData}
+					setData={setEduData}
+				/>
+				<WorkExp
+					data={workData}
+					setData={setWorkData}
+				/>
 			</form>
 		</div>
 	);
 }
 
-function GeneralInfo() {
-	const [formData, setFormData] = useState({
-		name: "",
-		email: "",
-		phone: ""
-	});
-	
+function GeneralInfo({data, setData}) {
+
 	function handleChange(e) {
 		const {name, value} = e.target;
-		setFormData({
-			...formData,
+		setData({
+			...data,
 			[name]: value
 		});
 	}
@@ -39,7 +63,7 @@ function GeneralInfo() {
 				<input
 					name="name"
 					placeholder="Bob the Builder"
-					value={formData.name}
+					value={data.name}
 					onChange={handleChange}
 				/>
 			</label>
@@ -49,7 +73,7 @@ function GeneralInfo() {
 				<input 
 					name="email"
 					placeholder="bob_builder@gmail.com"
-					value={formData.email}
+					value={data.email}
 					onChange={handleChange}
 				/>
 			</label>
@@ -59,7 +83,7 @@ function GeneralInfo() {
 				<input 
 					name="phone"
 					placeholder="123456789"
-					value={formData.phone}
+					value={data.phone}
 					onChange={handleChange}
 				/>
 			</label>
@@ -67,17 +91,12 @@ function GeneralInfo() {
 	);
 }
 
-function EducationExp() {
-	const [formData, setFormData] = useState({
-		schoolName:"",
-		studyTitle:"",
-		studyDate:""
-	})
+function EducationExp({data, setData}) {
 
 	function handleChange(e) {
 		const {name, value} = e.target;
-		setFormData({
-			...formData,
+		setData({
+			...data,
 			[name]: value
 		});
 	}
@@ -89,7 +108,7 @@ function EducationExp() {
 				<input
 					name="schoolName"
 					placeholder="Mickey Mouse Clubhouse"
-					value={formData.schoolName}
+					value={data.schoolName}
 					onChange={handleChange}
 				/>
 			</label>
@@ -99,7 +118,7 @@ function EducationExp() {
 				<input
 					name="studyTitle"
 					placeholder="The Mickey Dance"
-					value={formData.studyTitle}
+					value={data.studyTitle}
 					onChange={handleChange}
 				/>
 			</label>
@@ -117,19 +136,12 @@ function EducationExp() {
 	)
 }
 
-function WorkExp() {
-	const [formData, setFormData] = useState({
-		company:"",
-		position:"",
-		repsonsibilities:"",
-		startDate:"",
-		endDate:""
-	})
+function WorkExp({data, setData}) {
 
 	function handleChange(e) {
 		const {name, value} = e.target;
-		setFormData({
-			...formData,
+		setData({
+			...data,
 			[name]: value
 		});
 	}
@@ -141,7 +153,7 @@ function WorkExp() {
 				<input
 					name="company"
 					placeholder="ABC Company"
-					value={formData.company}
+					value={data.company}
 					onChange={handleChange}
 				/>
 			</label>
@@ -151,7 +163,7 @@ function WorkExp() {
 				<input
 					name="position"
 					placeholder="Alphabet Reciter"
-					value={formData.position}
+					value={data.position}
 					onChange={handleChange}
 				/>
 			</label>
@@ -161,7 +173,7 @@ function WorkExp() {
 				<input
 					name="responsibilities"
 					placeholder="Reciting the alphabet"
-					value={formData.repsonsibilities}
+					value={data.repsonsibilities}
 					onChange={handleChange}
 				/>
 			</label>
@@ -171,7 +183,7 @@ function WorkExp() {
 				<input
 					name="startDate"
 					placeholder="DD/MM/YYYY"
-					value={formData.startDate}
+					value={data.startDate}
 					onChange={handleChange}
 				/>
 			</label>
@@ -181,7 +193,7 @@ function WorkExp() {
 				<input
 					name="endDate"
 					placeholder="DD/MM/YYYY"
-					value={formData.endDate}
+					value={data.endDate}
 					onChange={handleChange}
 				/>
 			</label>
