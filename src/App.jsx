@@ -20,33 +20,40 @@ export default function App() {
 	const [workData, setWorkData] = useState({
 		company:"",
 		position:"",
-		repsonsibilities:"",
+		responsibilities:"",
 		startDate:"",
 		endDate:""
 	});
 
 	return (
 		<div>
-			<form>
-				<h1>CV Builder</h1>
-				<GeneralInfo 
-					data={generalData}
-					setData={setGenData}
-				/>
-				<EducationExp 
-					data={educationData}
-					setData={setEduData}
-				/>
-				<WorkExp
-					data={workData}
-					setData={setWorkData}
-				/>
-			</form>
-			<LivePreview
-				general={generalData}
-				education={educationData}
-				work={workData}
-			/>
+			<h1 className="title">CV Builder</h1>
+			<div className="container">
+				<form className="cv-form">
+					<GeneralInfo 
+						data={generalData}
+						setData={setGenData}
+					/>
+					<EducationExp 
+						data={educationData}
+						setData={setEduData}
+					/>
+					<WorkExp
+						data={workData}
+						setData={setWorkData}
+					/>
+				</form>
+				<div className="preview">
+					<h2 className="preview-title">Live Preview</h2>
+					<div className="details">
+						<LivePreview
+							general={generalData}
+							education={educationData}
+							work={workData}
+						/>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 }
@@ -62,9 +69,9 @@ function GeneralInfo({data, setData}) {
 	}
 
 	return (
-		<div>
+		<div className="general-info">
 			<h2>General Information</h2>
-			<label>Name:
+			<label>Name
 				<input
 					name="name"
 					placeholder="Bob the Builder"
@@ -74,7 +81,7 @@ function GeneralInfo({data, setData}) {
 			</label>
 			<br />
 
-			<label>Email:
+			<label>Email
 				<input 
 					name="email"
 					placeholder="bob_builder@gmail.com"
@@ -84,7 +91,7 @@ function GeneralInfo({data, setData}) {
 			</label>
 			<br />
 
-			<label>Phone Number:
+			<label>Phone Number
 				<input 
 					name="phone"
 					placeholder="123456789"
@@ -107,9 +114,9 @@ function EducationExp({data, setData}) {
 	}
 
 	return (
-		<div>
+		<div className="edu-exp">
 			<h2>Education Experience</h2>
-			<label>Name of Institution:
+			<label>Name of Institution
 				<input
 					name="schoolName"
 					placeholder="Mickey Mouse Clubhouse"
@@ -119,7 +126,7 @@ function EducationExp({data, setData}) {
 			</label>
 			<br />
 
-			<label>Title of Study:
+			<label>Title of Study
 				<input
 					name="studyTitle"
 					placeholder="The Mickey Dance"
@@ -129,7 +136,7 @@ function EducationExp({data, setData}) {
 			</label>
 			<br />
 
-			<label>Date of Study:
+			<label>Date of Study
 				<input
 					name="studyDate"
 					placeholder="DD/MM/YYYY"
@@ -152,9 +159,9 @@ function WorkExp({data, setData}) {
 	}
 
 	return (
-		<div>
+		<div className="work-exp">
 			<h2>Work Experience</h2>
-			<label>Name of Company:
+			<label>Name of Company
 				<input
 					name="company"
 					placeholder="ABC Company"
@@ -164,7 +171,7 @@ function WorkExp({data, setData}) {
 			</label>
 			<br />
 
-			<label>Position Title:
+			<label>Position Title
 				<input
 					name="position"
 					placeholder="Alphabet Reciter"
@@ -174,7 +181,7 @@ function WorkExp({data, setData}) {
 			</label>
 			<br />
 
-			<label>Main Responsibilities:
+			<label>Main Responsibilities
 				<input
 					name="responsibilities"
 					placeholder="Reciting the alphabet"
@@ -184,7 +191,7 @@ function WorkExp({data, setData}) {
 			</label>
 			<br />
 
-			<label>Starting Date:
+			<label>Starting Date
 				<input
 					name="startDate"
 					placeholder="DD/MM/YYYY"
@@ -194,7 +201,7 @@ function WorkExp({data, setData}) {
 			</label>
 			<br />
 
-			<label>Ending Date:
+			<label>Ending Date
 				<input
 					name="endDate"
 					placeholder="DD/MM/YYYY"
@@ -210,20 +217,21 @@ function LivePreview({general, education, work}) {
 	return (
 		<div>
 			<h1>{general.name || "Bob the Builder"}</h1>
-			<p>{general.email || "bob_builder@gmail.com"}</p>
-			<p>{general.phone || "123456789"}</p>
+			<div className='contact'>
+				<p>{general.email || "bob_builder@gmail.com"}</p>
+				<p>{general.phone || "123456789"}</p>
+			</div>
 
 			<h2>Education</h2>
 			<h3>{education.schoolName || "Mickey Mouse Clubhouse"}</h3>
 			<p>{education.studyTitle || "The Mickey Dance"}</p>
-			<p>{education.studyDate}</p>
+			<p><i>{education.studyDate || "Date of study"}</i></p>
 
 			<h2>Work Experience</h2>
 			<h3>{work.company || "ABC Company"}</h3>
+			<p><i>{work.startDate || "Start date"} - {work.endDate || "End date"}</i></p>
 			<p>{work.position || "Alphabet Reciter"}</p>
 			<p>{work.repsonsibilities || "Reciting the alphabet"}</p>
-			<p>{work.startDate}</p>
-			<p>{work.endDate}</p>
 		</div>
 	);
 }
