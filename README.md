@@ -1,8 +1,8 @@
 # CV Project - The Odin Project
 A simple web application that allows users to create and manage their CV. This project is built as part of The Odin Project to practice React fundamentals - components, props and state.
 
-<!-- ## Live Demo -->
-<!-- [include link to deployed project] -->
+## [Live Demo](https://react-cv-project-nine.vercel.app/)
+<img width="1904" height="1029" alt="image" src="https://github.com/user-attachments/assets/959fd642-876e-4217-aee9-1c16415dc3aa"/>
 
 ## Features
 - Add and edit:
