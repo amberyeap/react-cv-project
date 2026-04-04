@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+}
+
+body {
+	background: linear-gradient(135deg, #1B2A41, #243B55);
+	color: #e3f2fd;
+	min-height: 100vh;
+}
+
+.title {
+	text-align: center;
+	margin: 24px 0px;
+}
+
+/* MAIN LAYOUT */
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 40px;
+}
+
+.cv-form {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	width: 350px;
+	/* border: 2px red solid; */
+}
+
+/* INPUT HEADERS */
+.cv-form h2 {
+	margin-bottom: 8px;
+	color: #0d47a1;
+	/* font-weight: 500; */
+	border-left: 5px #0d47a1 solid;
+	padding: 8px 10px;
+}
+
+label {
+	display: flex;
+	flex-direction: column;
+	font-size: 18px;
+	color:#0d47a1;
+	font-weight: 500;
+	/* border: 2px red solid; */
+}
+
+/* INPUT BOXES */
+.cv-form input {
+	width: 100%;
+	height: 40px;
+	border: 1px #054A91 solid;
+	border-radius: 5px;
+	background-color: #F5F9FF;
+	padding: 10px;
+	font-size: 14px;
+}
+
+/* SECTION STYLE */
+.general-info,
+.edu-exp,
+.work-exp {
+	border-radius: 5px;
+	padding: 8px;
+	background-color: #ffffff;
+	color: #0d47a1;
+}
