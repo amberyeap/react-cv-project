@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-
 * {
 	margin: 0;
 	padding: 0;
@@ -17,6 +16,7 @@ body {
 .title {
 	text-align: center;
 	margin: 24px 0px;
+	font-size: 50px;
 }
 
 /* MAIN LAYOUT */
@@ -31,17 +31,17 @@ body {
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
-	width: 350px;
+	width: 400px;
 	/* border: 2px red solid; */
 }
 
 /* INPUT HEADERS */
 .cv-form h2 {
-	margin-bottom: 8px;
+	margin-bottom: 20px;
 	color: #0d47a1;
 	/* font-weight: 500; */
 	border-left: 5px #0d47a1 solid;
-	padding: 8px 10px;
+	padding: 5px 10px;
 }
 
 label {
@@ -58,18 +58,91 @@ label {
 	width: 100%;
 	height: 40px;
 	border: 1px #054A91 solid;
-	border-radius: 5px;
+	border-radius: 6px;
 	background-color: #F5F9FF;
 	padding: 10px;
 	font-size: 14px;
+	/* border: 2px red solid; */
 }
 
 /* SECTION STYLE */
 .general-info,
 .edu-exp,
 .work-exp {
-	border-radius: 5px;
-	padding: 8px;
+	border-radius: 12px;
+	padding: 28px;
 	background-color: #ffffff;
 	color: #0d47a1;
+	/* border: 2px red solid; */
+}
+
+/* LIVE PREVIEW */
+.preview {
+	max-width: 595px;
+	width: 100%;
+	max-height: 842px;
+	flex: 1;
+	/* background-color: white; */
+	color: #0d47a1;
+	border-radius: 12px;
+}
+
+.preview-title {
+	background-color: #F5F9FF;
+	/* border-left: 5px #0d47a1 solid; */
+	border-radius: 12px;
+	padding: 10px 28px;
+	margin-bottom: 8px;
+	/* border: 2px red solid; */
+}
+
+.details {
+	background-color: #F5F9FF;
+	border-radius: 12px;
+	padding: 32px;
+	display: flex;
+	flex-direction: column;
+}
+
+.details h1 {
+	text-align: center;
+	margin-bottom: 8px;
+}
+
+.contact {
+	display: flex;
+	justify-content: space-evenly;
+	border-bottom: 3px solid #e3f2fd;
+	padding-bottom: 8px;
+	gap: 20px;
+	/* border: red solid 2px; */
+}
+
+.details h2 {
+	padding: 8px 0px;
+	border-bottom: 2px solid #e3f2fd;
+	font-weight: 700;
+	text-align: center;
+}
+
+.details h3 {
+	font-weight: 600;
+	color: #115ac8;
+	margin: 8px 0px;
+}
+
+.details p {
+	font-weight: 100;
+}
+
+.details,
+.details p,
+.details h1,
+.details h2,
+.details h3 {
+	overflow-wrap: break-word;
+}
+
+.contact > * {
+	min-width: 0;
 }
